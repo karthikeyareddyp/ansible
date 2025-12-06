@@ -1,3 +1,4 @@
+#basic playbook 
 ---
  - hosts: dev
    connection: ssh
@@ -7,4 +8,23 @@
        yum: name=git state=present 
 
 
+...
+
+
+#how to write a playbook using a variable 
+
+---
+ - hosts: test
+   connection: ssh
+
+   vars:
+     - aa: git
+     - bb: maven
+
+   tasks:
+     - name: installing git on test
+       yum: name={{aa}} state=present
+
+     - name: installing maven on test
+       yum: name={{bb}} state=present 
 ...
