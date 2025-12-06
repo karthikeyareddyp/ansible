@@ -1,0 +1,10 @@
+---
+ - hosts: dev
+   connection: ssh
+
+   tasks:
+     - name: installing git on dev
+       yum: name=git state=present 
+
+
+...
