@@ -1,0 +1,13 @@
+---
+ - hosts: dev
+   connection: ssh
+
+   tasks:
+     - name: creating a web server
+       yum: name=httpd state=present
+
+     - name: starting the web service
+       service: name=httpd state=started
+...
+
+#allow port 80 in the security group you can access the webserver
