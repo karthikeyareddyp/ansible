@@ -1,0 +1,23 @@
+---
+- hosts: dev
+  connection: ssh
+
+  tasks:
+    - name: install web server
+      yum: name=httpd state=present
+
+    - name: Starting the web service
+      service: name=httpd state=started
+
+    - name: creating aindex file
+      file:
+       path: "/var/www/html/index.html"
+       state: touch
+
+    - name: copy the file
+      copy:
+        dest: "/var/www/html/index.html"
+        content: |
+          <h1>Welcome to Ansible webapp via playbook</h>
+
+...
