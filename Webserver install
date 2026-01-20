@@ -9,7 +9,7 @@
     - name: Starting the web service
       service: name=httpd state=started
 
-    - name: creating aindex file
+    - name: creating a index file
       file:
        path: "/var/www/html/index.html"
        state: touch
